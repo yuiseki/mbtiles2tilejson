@@ -33,7 +33,6 @@ export const mbtiles2tilejson = async (
   const names = path.parse(mbtilesFilePath);
   tilejson["id"] = names.name;
   tilejson["basename"] = names.base;
-  tilejson["tiles"] = baseUrl + "{z}/{x}/{y}." + tilejson["format"];
   tilejson["tilejson"] = "2.0.0";
   let db = new sqlite3.Database(mbtilesFilePath);
   const rows = await runQuery(db, "SELECT * FROM metadata");
@@ -56,5 +55,6 @@ export const mbtiles2tilejson = async (
         break;
     }
   }
+  tilejson["tiles"] = baseUrl + "{z}/{x}/{y}." + tilejson["format"];
   return JSON.stringify(tilejson, null, 2);
 };
