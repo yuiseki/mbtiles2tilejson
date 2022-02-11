@@ -57,8 +57,13 @@ const runQuery = (db, sql) => __awaiter(void 0, void 0, void 0, function* () {
 });
 const mbtiles2tilejson = (mbtilesFilePath, baseUrl) => __awaiter(void 0, void 0, void 0, function* () {
     var e_1, _a;
-    let db = new sqlite3.Database(mbtilesFilePath);
     let tilejson = {};
+    const names = path.parse(mbtilesFilePath);
+    tilejson["id"] = names.name;
+    tilejson["basename"] = names.base;
+    tilejson["tiles"] = baseUrl + "{z}/{x}/{y}." + tilejson["format"];
+    tilejson["tilejson"] = "2.0.0";
+    let db = new sqlite3.Database(mbtilesFilePath);
     const rows = yield runQuery(db, "SELECT * FROM metadata");
     db.close();
     try {
@@ -89,11 +94,6 @@ const mbtiles2tilejson = (mbtilesFilePath, baseUrl) => __awaiter(void 0, void 0,
         }
         finally { if (e_1) throw e_1.error; }
     }
-    const names = path.parse(mbtilesFilePath);
-    tilejson["id"] = names.name;
-    tilejson["basename"] = names.base;
-    tilejson["tiles"] = baseUrl + "{z}/{x}/{y}." + tilejson["format"];
-    tilejson["tilejson"] = "2.0.0";
     return JSON.stringify(tilejson, null, 2);
 });
 exports.mbtiles2tilejson = mbtiles2tilejson;
