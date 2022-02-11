@@ -1,0 +1,26 @@
+{
+  "name": "mbtiles2tilejson",
+  "version": "0.0.1",
+  "description": "Generate a TileJSON file from MBTiles file",
+  "main": "dist/index.js",
+  "bin": {
+    "mbtiles2tilejson": "bin/mbtiles2tilejson.js"
+  },
+  "scripts": {
+    "clean": "rm -rf dist",
+    "build": "npm run clean; tsc",
+    "prepare": "npm run build"
+  },
+  "author": "Yui Matsumura <yuiseki@gmail.com> (https://twitter.com/yuiseki_)",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^17.0.17",
+    "@types/sqlite3": "^3.1.8",
+    "@types/yargs": "^17.0.8",
+    "typescript": "^4.5.5"
+  },
+  "dependencies": {
+    "sqlite3": "^5.0.2",
+    "yargs": "^17.3.1"
+  }
+}
