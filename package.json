@@ -15,7 +15,7 @@
   "license": "MIT",
   "devDependencies": {
     "@types/node": "^22.0.0",
-    "@types/sqlite3": "^3.1.8",
+    "@types/sqlite3": "^5.0.0",
     "@types/yargs": "^17.0.8",
     "typescript": "^5.0.0"
   },
