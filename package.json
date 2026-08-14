@@ -20,7 +20,7 @@
     "typescript": "^5.0.0"
   },
   "dependencies": {
-    "sqlite3": "^5.0.2",
+    "sqlite3": "^6.0.0",
     "yargs": "^17.3.1"
   }
 }
