@@ -14,7 +14,7 @@
   "author": "Yui Matsumura <yuiseki@gmail.com> (https://twitter.com/yuiseki_)",
   "license": "MIT",
   "devDependencies": {
-    "@types/node": "^22.0.0",
+    "@types/node": "^24.0.0",
     "@types/sqlite3": "^5.0.0",
     "@types/yargs": "^17.0.8",
     "typescript": "^5.0.0"
